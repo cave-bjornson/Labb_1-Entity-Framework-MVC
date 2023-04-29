@@ -480,5 +480,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 /.idea/**
-/MyVacationController/app.db-wal
-/MyVacationController/app.db-shm
+*.db
+*.db-shm
+*.db-wal
+/MyVacationController/app.db
