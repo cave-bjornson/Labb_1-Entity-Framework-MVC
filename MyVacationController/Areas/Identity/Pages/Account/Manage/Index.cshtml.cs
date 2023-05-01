@@ -70,7 +70,7 @@ namespace MyVacationController.Areas.Identity.Pages.Account.Manage
             [Required]
             [DataType(DataType.Date)]
             [Display(Name = "Birth Date")]
-            public DateTime DOB { get; set; }
+            public DateTime? DOB { get; set; }
 
             [Phone]
             [Display(Name = "Phone number")]
@@ -147,7 +147,7 @@ namespace MyVacationController.Areas.Identity.Pages.Account.Manage
             {
                 user.DOB = Input.DOB;
             }
-
+            await _userManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
