@@ -145,7 +145,8 @@ namespace MyVacationController.Areas.Identity.Pages.Account.Manage
 
             if (Input.DOB != user.DOB)
             {
-                user.DOB = Input.DOB;
+                if (Input.DOB != null)
+                    user.DOB = (DateTime)Input.DOB;
             }
             await _userManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);

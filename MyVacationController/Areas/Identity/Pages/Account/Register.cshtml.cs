@@ -143,7 +143,8 @@ namespace MyVacationController.Areas.Identity.Pages.Account
 
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
-                user.DOB = (DateTime)Input.DOB;
+                if (Input.DOB != null)
+                    user.DOB = (DateTime)Input.DOB;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
