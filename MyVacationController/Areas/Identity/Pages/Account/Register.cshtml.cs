@@ -89,7 +89,7 @@ namespace MyVacationController.Areas.Identity.Pages.Account
             [Required]
             [DataType(DataType.Date)]
             [Display(Name = "Birth Date")]
-            public DateTime DOB { get; set; }
+            public DateTime? DOB { get; set; }
 
             [Required]
             [EmailAddress]
@@ -143,7 +143,7 @@ namespace MyVacationController.Areas.Identity.Pages.Account
 
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
-                user.DOB = Input.DOB;
+                user.DOB = (DateTime)Input.DOB;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
