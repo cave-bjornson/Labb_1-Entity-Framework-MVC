@@ -10,11 +10,11 @@ public class LeaveProfile : Profile
         CreateProjection<Leave, LeaveViewModel>()
             .ForMember(
                 model => model.EmployeeFirstName,
-                configuration => configuration.MapFrom(leave => leave.Employee.User.FirstName)
+                configuration => configuration.MapFrom(leave => leave.Employee.User.GivenName)
             )
             .ForMember(
                 model => model.EmployeeLastName,
-                configuration => configuration.MapFrom(leave => leave.Employee.User.LastName)
+                configuration => configuration.MapFrom(leave => leave.Employee.User.SurName)
             );
         
         CreateMap<LeaveViewModel, Leave>()

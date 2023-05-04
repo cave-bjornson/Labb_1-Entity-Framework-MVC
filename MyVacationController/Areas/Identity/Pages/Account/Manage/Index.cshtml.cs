@@ -4,6 +4,7 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -70,7 +71,7 @@ namespace MyVacationController.Areas.Identity.Pages.Account.Manage
             [Required]
             [DataType(DataType.Date)]
             [Display(Name = "Birth Date")]
-            public DateTime? DOB { get; set; }
+            public DateOnly? DOB { get; set; }
 
             [Phone]
             [Display(Name = "Phone number")]
@@ -86,9 +87,9 @@ namespace MyVacationController.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                DOB = user.DOB,
+                FirstName = user.GivenName,
+                LastName = user.SurName,
+                DOB = user.DateOfBirth,
                 PhoneNumber = phoneNumber
             };
         }
@@ -133,20 +134,20 @@ namespace MyVacationController.Areas.Identity.Pages.Account.Manage
                 }
             }
 
-            if (Input.FirstName != user.FirstName)
+            if (Input.FirstName != user.GivenName)
             {
-                user.FirstName = Input.FirstName;
+                user.GivenName = Input.FirstName;
             }
 
-            if (Input.LastName != user.LastName)
+            if (Input.LastName != user.SurName)
             {
-                user.LastName = Input.LastName;
+                user.SurName = Input.LastName;
             }
 
-            if (Input.DOB != user.DOB)
+            if (Input.DOB != user.DateOfBirth)
             {
                 if (Input.DOB != null)
-                    user.DOB = (DateTime)Input.DOB;
+                    user.DateOfBirth = Input.DOB;
             }
             await _userManager.UpdateAsync(user);
             await _signInManager.RefreshSignInAsync(user);

@@ -4,13 +4,17 @@ namespace MyVacationController.Data
 {
     public class ApplicationUser : IdentityUser
     {
-        [PersonalData]
-        public string? FirstName { get; set; }
+        public Guid? EmployeeId { get; set; }
 
         [PersonalData]
-        public string? LastName { get; set; }
+        public string? GivenName { get; set; }
 
         [PersonalData]
-        public DateTime DOB { get; set; }
+        public string? SurName { get; set; }
+
+        [PersonalData]
+        public DateOnly? DateOfBirth { get; set; }
+
+        public bool IsAdmin { get; set; }
     }
 }

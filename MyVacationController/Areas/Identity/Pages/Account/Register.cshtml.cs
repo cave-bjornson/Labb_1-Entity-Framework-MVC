@@ -2,23 +2,18 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
 using MyVacationController.Data;
+using MyVacationController.Models;
 
 namespace MyVacationController.Areas.Identity.Pages.Account
 {
@@ -30,13 +25,15 @@ namespace MyVacationController.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _context;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender
+            IEmailSender emailSender,
+            ApplicationDbContext context
         )
         {
             _userManager = userManager;
@@ -45,6 +42,7 @@ namespace MyVacationController.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -89,7 +87,7 @@ namespace MyVacationController.Areas.Identity.Pages.Account
             [Required]
             [DataType(DataType.Date)]
             [Display(Name = "Birth Date")]
-            public DateTime? DOB { get; set; }
+            public DateOnly? DOB { get; set; }
 
             [Required]
             [EmailAddress]
@@ -141,10 +139,13 @@ namespace MyVacationController.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                user.FirstName = Input.FirstName;
-                user.LastName = Input.LastName;
+                user.GivenName = Input.FirstName;
+                user.SurName = Input.LastName;
                 if (Input.DOB != null)
-                    user.DOB = (DateTime)Input.DOB;
+                {
+                    user.DateOfBirth = Input.DOB;
+                }
+                user.IsAdmin = false;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -152,7 +153,19 @@ namespace MyVacationController.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("User created a new account with password");
+                    var employee = new Employee() { User = user };
+                    var employeeEntity = _context.Employees.Add(employee);
+                    var saveResult = await _context.SaveChangesAsync();
+                    if (saveResult > 0)
+                    {
+                        user.EmployeeId = employeeEntity.Entity.Id;
+                        _logger.LogInformation("Employee created and associated with User Account");
+                    }
+                    else
+                    {
+                        _logger.LogError("Error when associating employee with ApplicationUser");
+                    }
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

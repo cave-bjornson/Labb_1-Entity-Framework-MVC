@@ -16,10 +16,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         base.OnModelCreating(builder);
         builder.Entity<ApplicationUser>(user =>
         {
-            user.Property(u => u.Id).ValueGeneratedOnAdd();
-            user.Property(u => u.DOB).IsRequired();
-            user.Property(u => u.FirstName).HasMaxLength(50);
-            user.Property(u => u.LastName).HasMaxLength(50);
+            user.Property(u => u.DateOfBirth).IsRequired();
+            user.Property(u => u.GivenName).HasMaxLength(50);
+            user.Property(u => u.SurName).HasMaxLength(50);
             user.HasOne<Employee>().WithOne(e => e.User).HasForeignKey<Employee>("UserId");
         });
 
@@ -39,6 +38,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             leave.Property(l => l.Id).ValueGeneratedOnAdd();
             leave.Property(l => l.Comment).HasMaxLength(500);
             leave.HasOne(l => l.Employee).WithMany(e => e.Leaves).HasForeignKey("EmployeeId");
+            leave.Property(l => l.TimeStamp).ValueGeneratedOnAdd();
         });
     }
 }

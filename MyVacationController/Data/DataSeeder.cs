@@ -27,22 +27,28 @@ public class DataSeeder
             var user = new ApplicationUser()
             {
                 UserName = "jon.doe@email.com",
-                FirstName = "Jon",
-                LastName = "Doe",
-                DOB = new DateTime(1980, 1, 1),
+                GivenName = "Jon",
+                SurName = "Doe",
+                DateOfBirth = new DateOnly(1980, 1, 1),
+                IsAdmin = false,
             };
+
+            var employee = new Employee() { User = user };
+            var employeeEntity = _dbContext.Employees.Add(employee);
+            user.EmployeeId = employeeEntity.Entity.Id;
+
             var result = await _userManager.CreateAsync(user, "secret");
+
             if (result.Succeeded)
             {
-                _logger.LogInformation("User created a new account with password.");
-                var employee = new Employee() { User = user };
-                _dbContext.Employees.Add(employee);
+                _logger.LogInformation("User created a new account with password");
+
                 var leave = new Leave()
                 {
                     Employee = employee,
                     Type = LeaveType.Vacation,
-                    Start = DateTime.Today,
-                    End = DateTime.Today.AddMonths(1),
+                    Start = DateOnly.FromDateTime(DateTime.Today),
+                    End = DateOnly.FromDateTime(DateTime.Today.AddMonths(1)),
                     Comment = "Gone Fishin'"
                 };
                 _dbContext.Leaves.Add(leave);
@@ -50,7 +56,7 @@ public class DataSeeder
             }
             else
             {
-                _logger.LogError("Failed to create user.");
+                _logger.LogError("Failed to create user");
             }
         }
     }

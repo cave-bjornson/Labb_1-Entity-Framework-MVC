@@ -5,11 +5,12 @@ namespace MyVacationController.Models
     public class Leave
     {
         public string? Id { get; set; }
-        public required DateTime Start { get; set; }
-        public required DateTime End { get; set; }
+        public required DateOnly Start { get; set; }
+        public required DateOnly End { get; set; }
         public required Employee Employee { get; set; }
         public required LeaveType Type { get; set; }
         public string? Comment { get; set; }
+        public DateTime TimeStamp { get; set; }
     }
 
     public enum LeaveType

@@ -4,14 +4,14 @@ namespace MyVacationController.Models
 {
     public class Employee
     {
-        public string? Id { get; set; }
+        public Guid? Id { get; set; }
 
         internal ApplicationUser? User { get; set; }
 
-        public string? FirstName => User?.FirstName;
-        public string? LastName => User?.LastName;
+        public string? FirstName => User?.GivenName;
+        public string? LastName => User?.SurName;
         public string? Email => User?.Email;
-        public DateTime? DOB => User?.DOB;
+        public DateOnly? DOB => User?.DateOfBirth;
 
         public ICollection<Leave> Leaves { get; } = new List<Leave>();
     }
