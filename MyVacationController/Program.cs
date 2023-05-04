@@ -27,6 +27,9 @@ builder.Services
         options.Password.RequiredUniqueChars = 0;
     })
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddAutoMapper(typeof(Program));
+
 builder.Services.AddControllersWithViews();
 
 if (seedData)

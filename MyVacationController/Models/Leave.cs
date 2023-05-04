@@ -1,4 +1,6 @@
-﻿namespace MyVacationController.Models
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+
+namespace MyVacationController.Models
 {
     public class Leave
     {
@@ -6,9 +8,7 @@
         public required DateTime Start { get; set; }
         public required DateTime End { get; set; }
         public required Employee Employee { get; set; }
-
         public required LeaveType Type { get; set; }
-
         public string? Comment { get; set; }
     }
 
