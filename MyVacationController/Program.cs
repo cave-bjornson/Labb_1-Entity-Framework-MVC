@@ -1,6 +1,7 @@
 using System.Net.Mime;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MyVacationController.Areas.Identity;
 using MyVacationController.Data;
 
 // Toggle seeding data from command line
@@ -27,6 +28,11 @@ builder.Services
         options.Password.RequiredUniqueChars = 0;
     })
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddScoped<
+    IUserClaimsPrincipalFactory<ApplicationUser>,
+    AdditionalUserClaimsPrincipalFactory
+>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 

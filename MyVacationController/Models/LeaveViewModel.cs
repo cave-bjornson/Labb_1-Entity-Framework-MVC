@@ -23,11 +23,11 @@ namespace MyVacationController.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public required DateTime Start { get; init; }
+        public required DateOnly Start { get; init; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public required DateTime End { get; init; }
+        public required DateOnly End { get; init; }
 
         public required LeaveType Type { get; init; }
 
@@ -44,12 +44,12 @@ namespace MyVacationController.Models
                 yield return new ValidationResult("Start date must be before end date.");
             }
 
-            if (Start < DateTime.Today)
+            if (Start < DateOnly.FromDateTime(DateTime.Today))
             {
                 yield return new ValidationResult("Start date must be in the future.");
             }
 
-            if (End < DateTime.Today)
+            if (End < DateOnly.FromDateTime(DateTime.Today))
             {
                 yield return new ValidationResult("End date must be in the future.");
             }

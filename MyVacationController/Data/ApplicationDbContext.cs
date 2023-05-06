@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using MyVacationController.Models;
 
 namespace MyVacationController.Data;
 
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+public class ApplicationDbContext : IdentityUserContext<ApplicationUser, Guid>
 {
+    private string dateTimeSQLFunction;
+
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     public DbSet<Employee> Employees { get; set; } = default!;
@@ -32,13 +36,15 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             employee.Ignore(e => e.DOB);
         });
 
+        dateTimeSQLFunction = Database.IsSqlite() ? "datetime('now', 'localtime')" : "getdate()";
+
         builder.Entity<Leave>(leave =>
         {
             leave.HasKey(l => l.Id);
             leave.Property(l => l.Id).ValueGeneratedOnAdd();
             leave.Property(l => l.Comment).HasMaxLength(500);
             leave.HasOne(l => l.Employee).WithMany(e => e.Leaves).HasForeignKey("EmployeeId");
-            leave.Property(l => l.TimeStamp).ValueGeneratedOnAdd();
+            leave.Property(l => l.Created).HasDefaultValueSql(dateTimeSQLFunction);
         });
     }
 }

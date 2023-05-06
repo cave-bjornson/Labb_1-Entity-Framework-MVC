@@ -10,7 +10,7 @@ namespace MyVacationController.Models
         public required Employee Employee { get; set; }
         public required LeaveType Type { get; set; }
         public string? Comment { get; set; }
-        public DateTime TimeStamp { get; set; }
+        public DateTime Created { get; set; }
     }
 
     public enum LeaveType

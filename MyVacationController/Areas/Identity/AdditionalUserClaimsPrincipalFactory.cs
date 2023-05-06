@@ -5,28 +5,30 @@ using MyVacationController.Data;
 
 namespace MyVacationController.Areas.Identity;
 
-public class AdditionalUserClaimsPrincipalFactory
-    : UserClaimsPrincipalFactory<ApplicationUser, IdentityRole>
+public class AdditionalUserClaimsPrincipalFactory : UserClaimsPrincipalFactory<ApplicationUser>
 {
     private readonly UserManager<ApplicationUser> _userManager;
-    private readonly RoleManager<IdentityRole> _roleManager;
     private readonly IOptions<IdentityOptions> _optionsAccessor;
+    private readonly ILogger<AdditionalUserClaimsPrincipalFactory> _logger;
 
     public AdditionalUserClaimsPrincipalFactory(
         UserManager<ApplicationUser> userManager,
-        RoleManager<IdentityRole> roleManager,
-        IOptions<IdentityOptions> optionsAccessor
-    ) : base(userManager, roleManager, optionsAccessor)
+        IOptions<IdentityOptions> optionsAccessor,
+        ILogger<AdditionalUserClaimsPrincipalFactory> logger
+    ) : base(userManager, optionsAccessor)
     {
         _userManager = userManager;
-        _roleManager = roleManager;
         _optionsAccessor = optionsAccessor;
+        _logger = logger;
     }
 
-    public override async Task<ClaimsPrincipal> CreateAsync(ApplicationUser user)
+    protected override async Task<ClaimsIdentity> GenerateClaimsAsync(ApplicationUser user)
     {
-        var principal = await base.CreateAsync(user);
-        var identity = principal.Identity as ClaimsIdentity;
+        // _logger.LogInformation("Run principal factory for user {Dump}", user.Dump());
+
+        var identity = await base.GenerateClaimsAsync(user);
+
+        // _logger.LogInformation("Identity: {Dump}", identity.Dump());
 
         var claims = new List<Claim>();
         if (user.EmployeeId is not null)
@@ -51,15 +53,11 @@ public class AdditionalUserClaimsPrincipalFactory
 
         if (user.IsAdmin)
         {
-            claims.Add(new Claim(ClaimTypes.Role, "admin"));
-        }
-        else
-        {
-            claims.Add(new Claim(ClaimTypes.Role, "user"));
+            claims.Add(new Claim("IsAdmin", ""));
         }
 
-        if (identity != null)
-            identity.AddClaims(claims);
-        return principal;
+        identity.AddClaims(claims);
+        // _logger.LogInformation("Claims should been added here {Dump}", identity.Dump());
+        return identity;
     }
 }

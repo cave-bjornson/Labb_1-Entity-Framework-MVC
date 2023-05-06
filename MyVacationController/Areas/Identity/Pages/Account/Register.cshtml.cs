@@ -160,11 +160,19 @@ namespace MyVacationController.Areas.Identity.Pages.Account
                     if (saveResult > 0)
                     {
                         user.EmployeeId = employeeEntity.Entity.Id;
-                        _logger.LogInformation("Employee created and associated with User Account");
-                    }
-                    else
-                    {
-                        _logger.LogError("Error when associating employee with ApplicationUser");
+                        var updateResult = await _userManager.UpdateAsync(user);
+                        if (updateResult.Succeeded)
+                        {
+                            _logger.LogInformation(
+                                "Employee created and associated with User Account"
+                            );
+                        }
+                        else
+                        {
+                            _logger.LogError(
+                                "Error when associating employee with ApplicationUser"
+                            );
+                        }
                     }
 
                     var userId = await _userManager.GetUserIdAsync(user);
