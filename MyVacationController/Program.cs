@@ -1,6 +1,7 @@
 using System.Net.Mime;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using MyVacationController.Areas.Identity;
 using MyVacationController.Data;
 
@@ -37,6 +38,11 @@ builder.Services.AddScoped<
     IUserClaimsPrincipalFactory<ApplicationUser>,
     AdditionalUserClaimsPrincipalFactory
 >();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("IsAdmin", policyBuilder => policyBuilder.RequireClaim("IsAdmin"));
+});
 
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -78,6 +84,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");

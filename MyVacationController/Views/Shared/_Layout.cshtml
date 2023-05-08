@@ -25,12 +25,17 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="Index">Leaves</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="Monthly">Admin</a>
-                    </li>
+                    @if (User.HasClaim(claim => claim.Type == "EmployeeId")) {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="Index">Leaves</a>
+                        </li>
+                    }
+                    @if ((await AuthorizationService.AuthorizeAsync(User, "IsAdmin")).Succeeded)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Leave" asp-action="Monthly">Admin</a>
+                        </li>
+                    }
                 </ul>
                 <partial name="_LoginPartial"/>
             </div>

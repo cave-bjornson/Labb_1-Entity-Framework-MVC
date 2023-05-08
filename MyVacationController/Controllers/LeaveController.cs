@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -226,6 +227,7 @@ namespace MyVacationController.Controllers
             return (_context.Leaves?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
+        [Authorize(Policy = "IsAdmin")]
         public async Task<IActionResult> Monthly(DateTime? month)
         {
             _logger.LogInformation("Month: {Month}", month);
