@@ -12,7 +12,7 @@ namespace MyVacationController.Models
             Enum.GetValues<LeaveType>()
                 .Select(lt => new SelectListItem(lt.ToFriendlyString(), lt.ToString()));
 
-        public required string? Id { get; init; }
+        public required Guid? Id { get; init; }
 
         public string? EmployeeFirstName { get; init; }
 
@@ -35,6 +35,9 @@ namespace MyVacationController.Models
         public string? Comment { get; init; }
 
         public string? ShortComment => Comment?.Length >= 20 ? $"{Comment[..16]}..." : Comment;
+
+        [DataType(DataType.Date)]
+        public required DateTime Created { get; init; }
 
         /// <inheritdoc />
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

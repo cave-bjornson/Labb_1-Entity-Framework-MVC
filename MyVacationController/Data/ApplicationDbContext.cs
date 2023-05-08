@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Options;
 using MyVacationController.Models;
 
@@ -15,11 +16,20 @@ public class ApplicationDbContext : IdentityUserContext<ApplicationUser, Guid>
     public DbSet<Employee> Employees { get; set; } = default!;
     public DbSet<Leave> Leaves { get; set; } = default!;
 
+    /// <inheritdoc />
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        base.ConfigureConventions(configurationBuilder);
+        configurationBuilder.Properties<Guid>().HaveConversion<GuidToStringConverter>();
+    }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
         builder.Entity<ApplicationUser>(user =>
         {
+            user.HasKey(u => u.Id);
+            user.Property(e => e.Id).ValueGeneratedOnAdd();
             user.Property(u => u.DateOfBirth).IsRequired();
             user.Property(u => u.GivenName).HasMaxLength(50);
             user.Property(u => u.SurName).HasMaxLength(50);
@@ -47,4 +57,6 @@ public class ApplicationDbContext : IdentityUserContext<ApplicationUser, Guid>
             leave.Property(l => l.Created).HasDefaultValueSql(dateTimeSQLFunction);
         });
     }
+
+    public DbSet<MyVacationController.Models.LeaveViewModel> LeaveViewModel { get; set; } = default!;
 }

@@ -4,7 +4,7 @@ namespace MyVacationController.Models
 {
     public class Leave
     {
-        public string? Id { get; set; }
+        public Guid? Id { get; set; }
         public required DateOnly Start { get; set; }
         public required DateOnly End { get; set; }
         public required Employee Employee { get; set; }

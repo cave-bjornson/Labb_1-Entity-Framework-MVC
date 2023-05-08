@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System.Security.Claims;
+using System.Text.RegularExpressions;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -32,13 +34,31 @@ namespace MyVacationController.Controllers
         // GET: Leaves
         public async Task<IActionResult> Index()
         {
+            // _logger.LogInformation("claim employee id {ID}", User.FindFirstValue("EmployeeId"));
+            var leaves = _context.Leaves
+                .Include(leave => leave.Employee)
+                .Where(leave => leave.Employee.Id.ToString() == User.FindFirstValue("EmployeeId"));
+
+            // leaves.ForEachAsync(leave =>
+            // {
+            //     _logger.LogInformation("leave employeid {Dump}", leave.Employee.Id.ToString());
+            //     _logger.LogInformation(
+            //         "Equals? {equals}",
+            //         leave.Employee.Id.ToString() == User.FindFirstValue("EmployeeId")
+            //     );
+            // });
+
+            //_logger.LogInformation("leaves {Dump}", leaves.FirstOrDefault().Employee.Id);
+            // .Include(l => l.Employee)
+            // .Where(leave => leave.Employee.Id.ToString() == User.FindFirstValue("EmployeeId"));
+
             return _context.Leaves != null
-                ? View(await _mapper.ProjectTo<LeaveViewModel>(_context.Leaves, null).ToListAsync())
+                ? View(await _mapper.ProjectTo<LeaveViewModel>(leaves, null).ToListAsync())
                 : Problem("Entity set 'ApplicationDbContext.Leaves'  is null.");
         }
 
         // GET: Leaves/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(Guid id)
         {
             if (id == null || _context.Leaves == null)
             {
@@ -97,7 +117,7 @@ namespace MyVacationController.Controllers
         }
 
         // GET: Leaves/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null || _context.Leaves == null)
             {
@@ -125,7 +145,7 @@ namespace MyVacationController.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(
-            string id,
+            Guid id,
             [Bind("Id,Start,End,Type,Comment")] LeaveViewModel model
         )
         {
@@ -163,7 +183,7 @@ namespace MyVacationController.Controllers
         }
 
         // GET: Leaves/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             if (id == null || _context.Leaves == null)
             {
@@ -185,7 +205,7 @@ namespace MyVacationController.Controllers
         // POST: Leaves/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             if (_context.Leaves == null)
             {
@@ -201,9 +221,41 @@ namespace MyVacationController.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LeaveExists(string id)
+        private bool LeaveExists(Guid? id)
         {
             return (_context.Leaves?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        public async Task<IActionResult> Monthly(DateTime? month)
+        {
+            _logger.LogInformation("Month: {Month}", month);
+            //yearAndMonth = DateTime.Today;
+            // yearAndMonth = (DateTime?)ViewData["Month"];
+
+            // regex that matches yyyy-mm
+            // if (month is not null && Regex.Match(month, @"^\d{4}-\d{2}$").Success is false)
+            // {
+            //     return NotFound();
+            // }
+
+            var leaves = _context.Leaves.Include(leave => leave.Employee).AsQueryable();
+
+            if (month is not null)
+            {
+                // var ymArray = month.Split('-');
+                // var yyyy = int.Parse(ymArray.First());
+                // var mm = int.Parse(ymArray.Last());
+                int yyyy = month.GetValueOrDefault().Year;
+                int mm = month.GetValueOrDefault().Month;
+
+                leaves = leaves.Where(
+                    leave => leave.Created.Year == yyyy && leave.Created.Month == mm
+                );
+
+                ViewBag.Month = month.GetValueOrDefault().ToString("yyyy-MM");
+            }
+
+            return View(await _mapper.ProjectTo<LeaveViewModel>(leaves, null).ToListAsync());
         }
     }
 }
