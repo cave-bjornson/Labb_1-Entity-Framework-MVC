@@ -1,0 +1,72 @@
+@model IEnumerable<MyVacationController.Models.EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>Employees</h1>
+
+<div class="form-row">
+    <div class="col-md-4">
+        <form asp-action="Index" method="get">
+            <div class="form-group">
+                <label for="search" class="control-label">Name: </label>
+                <input type="text" id="search" name="searchstring" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Filter" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasApplications)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalDaysThisYear) @DateTime.Today.Year
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasApplications)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDaysThisYear)
+            </td>
+            <td>
+            @if (item.HasApplications)
+            {
+                <a asp-controller="Leave" asp asp-action="AdminIndex" asp-route-id="@item.Id">Applications</a>
+            }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

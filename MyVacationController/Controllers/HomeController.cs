@@ -1,9 +1,11 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyVacationController.Models;
 
 namespace MyVacationController.Controllers;
 
+[Authorize]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -15,12 +17,12 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
-    }
+        if (User.HasClaim(claim => claim.Type == "IsAdmin"))
+        {
+            return RedirectToAction("Monthly", "Leave");
+        }
 
-    public IActionResult Privacy()
-    {
-        return View();
+        return RedirectToAction("Index", "Leave");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

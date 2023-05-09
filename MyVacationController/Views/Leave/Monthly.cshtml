@@ -8,13 +8,13 @@
     };
 }
 
-<h1>MonthlyOverView</h1>
+<h1>Monthly Overview</h1>
 
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Monthly" method="get">
             <div class="form-group">
-                <label class="control-label"></label>
+                <label class="control-label">Filter by Month (Application Date)</label>
                 <input type="month" name="month" class="form-control" value="@ViewBag.Month" />
             </div>
             <div class="form-group">
@@ -71,9 +71,7 @@
             @Html.DisplayFor(modelItem => item.ShortComment)
         </td>
         <td>
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <a asp-action="AdminDetails" asp-route-id="@item.Id">Details</a>
         </td>
     </tr>
 }

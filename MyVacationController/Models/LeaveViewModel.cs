@@ -14,6 +14,8 @@ namespace MyVacationController.Models
 
         public required Guid? Id { get; init; }
 
+        public Guid EmployeeId { get; init; }
+
         public string? EmployeeFirstName { get; init; }
 
         public string? EmployeeLastName { get; init; }
@@ -28,6 +30,8 @@ namespace MyVacationController.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public required DateOnly End { get; init; }
+
+        public required int TotalDays { get; init; }
 
         public required LeaveType Type { get; init; }
 

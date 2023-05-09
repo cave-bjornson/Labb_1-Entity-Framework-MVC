@@ -10,6 +10,8 @@ namespace MyVacationController.Models
 
         public string? FirstName => User?.GivenName;
         public string? LastName => User?.SurName;
+
+        public string? FullName => $"{FirstName} {LastName}";
         public string? Email => User?.Email;
         public DateOnly? DOB => User?.DateOfBirth;
 

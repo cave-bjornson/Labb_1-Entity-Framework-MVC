@@ -12,6 +12,7 @@ using MyVacationController.Models;
 
 namespace MyVacationController.Controllers
 {
+    [Authorize]
     public class LeaveController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -33,33 +34,48 @@ namespace MyVacationController.Controllers
         }
 
         // GET: Leaves
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid id)
         {
-            // _logger.LogInformation("claim employee id {ID}", User.FindFirstValue("EmployeeId"));
             var leaves = _context.Leaves
                 .Include(leave => leave.Employee)
                 .Where(leave => leave.Employee.Id.ToString() == User.FindFirstValue("EmployeeId"));
 
-            // leaves.ForEachAsync(leave =>
-            // {
-            //     _logger.LogInformation("leave employeid {Dump}", leave.Employee.Id.ToString());
-            //     _logger.LogInformation(
-            //         "Equals? {equals}",
-            //         leave.Employee.Id.ToString() == User.FindFirstValue("EmployeeId")
-            //     );
-            // });
+            ViewBag.TitlePrefix = "My";
 
-            //_logger.LogInformation("leaves {Dump}", leaves.FirstOrDefault().Employee.Id);
-            // .Include(l => l.Employee)
-            // .Where(leave => leave.Employee.Id.ToString() == User.FindFirstValue("EmployeeId"));
+            return View(await _mapper.ProjectTo<LeaveViewModel>(leaves, null).ToListAsync());
+        }
 
-            return _context.Leaves != null
-                ? View(await _mapper.ProjectTo<LeaveViewModel>(leaves, null).ToListAsync())
-                : Problem("Entity set 'ApplicationDbContext.Leaves'  is null.");
+        [Authorize(Policy = "IsAdmin")]
+        public async Task<IActionResult> AdminIndex(Guid id)
+        {
+            var leaves = _context.Leaves
+                .Include(leave => leave.Employee)
+                .Where(leave => leave.Employee.Id == id);
+
+            return View(await _mapper.ProjectTo<LeaveViewModel>(leaves, null).ToListAsync());
         }
 
         // GET: Leaves/Details/5
         public async Task<IActionResult> Details(Guid id)
+        {
+            if (id == null || _context.Leaves == null)
+            {
+                return NotFound();
+            }
+
+            var model = await _mapper
+                .ProjectTo<LeaveViewModel>(_context.Leaves.Where(leave => leave.Id == id))
+                .SingleOrDefaultAsync();
+
+            if (model == null)
+            {
+                return NotFound();
+            }
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> AdminDetails(Guid id)
         {
             if (id == null || _context.Leaves == null)
             {
@@ -231,14 +247,6 @@ namespace MyVacationController.Controllers
         public async Task<IActionResult> Monthly(DateTime? month)
         {
             _logger.LogInformation("Month: {Month}", month);
-            //yearAndMonth = DateTime.Today;
-            // yearAndMonth = (DateTime?)ViewData["Month"];
-
-            // regex that matches yyyy-mm
-            // if (month is not null && Regex.Match(month, @"^\d{4}-\d{2}$").Success is false)
-            // {
-            //     return NotFound();
-            // }
 
             var leaves = _context.Leaves.Include(leave => leave.Employee).AsQueryable();
 

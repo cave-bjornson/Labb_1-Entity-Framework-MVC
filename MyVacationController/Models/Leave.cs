@@ -11,6 +11,8 @@ namespace MyVacationController.Models
         public required LeaveType Type { get; set; }
         public string? Comment { get; set; }
         public DateTime Created { get; set; }
+
+        public int TotalDays => End.DayOfYear - Start.DayOfYear + 1;
     }
 
     public enum LeaveType
