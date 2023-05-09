@@ -1,4 +1,5 @@
-﻿using MyVacationController.Data;
+﻿using Microsoft.AspNetCore.SignalR;
+using MyVacationController.Data;
 
 namespace MyVacationController.Models
 {
@@ -6,6 +7,7 @@ namespace MyVacationController.Models
     {
         public Guid? Id { get; set; }
 
+        internal Guid? UserId { get; set; }
         internal ApplicationUser? User { get; set; }
 
         public string? FirstName => User?.GivenName;

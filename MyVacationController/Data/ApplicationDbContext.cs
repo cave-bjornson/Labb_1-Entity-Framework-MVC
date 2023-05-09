@@ -44,6 +44,7 @@ public class ApplicationDbContext : IdentityUserContext<ApplicationUser, Guid>
             employee.Ignore(e => e.LastName);
             employee.Ignore(e => e.Email);
             employee.Ignore(e => e.DOB);
+            employee.Ignore(e => e.FullName);
         });
 
         dateTimeSQLFunction = Database.IsSqlite() ? "datetime('now', 'localtime')" : "getdate()";
@@ -53,10 +54,14 @@ public class ApplicationDbContext : IdentityUserContext<ApplicationUser, Guid>
             leave.HasKey(l => l.Id);
             leave.Property(l => l.Id).ValueGeneratedOnAdd();
             leave.Property(l => l.Comment).HasMaxLength(500);
+            leave.Ignore(l => l.TotalDays);
             leave.HasOne(l => l.Employee).WithMany(e => e.Leaves).HasForeignKey("EmployeeId");
             leave.Property(l => l.Created).HasDefaultValueSql(dateTimeSQLFunction);
         });
-    }
 
-    public DbSet<MyVacationController.Models.LeaveViewModel> LeaveViewModel { get; set; } = default!;
+        var dataBaseSeeder = new DataSeeder();
+        builder.Entity<ApplicationUser>().HasData(dataBaseSeeder.Users);
+        builder.Entity<Employee>().HasData(dataBaseSeeder.Employees);
+        builder.Entity<Leave>().HasData(dataBaseSeeder.Leaves);
+    }
 }

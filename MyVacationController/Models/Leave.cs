@@ -7,12 +7,16 @@ namespace MyVacationController.Models
         public Guid? Id { get; set; }
         public required DateOnly Start { get; set; }
         public required DateOnly End { get; set; }
+
+        internal Guid? EmployeeId { get; set; }
         public required Employee Employee { get; set; }
+
         public required LeaveType Type { get; set; }
         public string? Comment { get; set; }
         public DateTime Created { get; set; }
 
-        public int TotalDays => End.DayOfYear - Start.DayOfYear + 1;
+        public int TotalDays =>
+            End.ToDateTime(TimeOnly.MinValue).Subtract(Start.ToDateTime(TimeOnly.MinValue)).Days;
     }
 
     public enum LeaveType

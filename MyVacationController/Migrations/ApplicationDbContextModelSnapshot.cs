@@ -166,6 +166,280 @@ namespace MyVacationController.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "8286d046-9740-a3e4-95cf-ff46699c73c4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "63a1e292-c5cf-e7f0-1d98-afd125a33af2",
+                            DateOfBirth = new DateOnly(1981, 8, 21),
+                            Email = "Maria.Zemlak@yahoo.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "3410cda1-5b13-a34e-6f84-a54adf7a0ea0",
+                            GivenName = "Maria",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "MARIA.ZEMLAK@YAHOO.COM",
+                            NormalizedUserName = "MARIA.ZEMLAK@YAHOO.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "SLGX3FCLNPM32A4AWHZE7XULUQ7YPR6KBD3DIBGGZ3WG37JS2IYQ",
+                            SurName = "Zemlak",
+                            TwoFactorEnabled = false,
+                            UserName = "Maria.Zemlak@yahoo.com"
+                        },
+                        new
+                        {
+                            Id = "95c69371-b924-6fe3-7c38-98b7dd200bc1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "d537122b-642d-85d4-abd5-89e18ec580c8",
+                            DateOfBirth = new DateOnly(1955, 4, 11),
+                            Email = "Brian4@hotmail.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "2eec1e16-bdf0-4616-f2a9-e6936c626933",
+                            GivenName = "Brian",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "BRIAN4@HOTMAIL.COM",
+                            NormalizedUserName = "BRIAN4@HOTMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "GYRFQQ3HMGN2UZE73H3Y6GSYS4HXRFRYEKGFDZ2FBHVYB5ULEAKA",
+                            SurName = "Heaney",
+                            TwoFactorEnabled = false,
+                            UserName = "Brian4@hotmail.com"
+                        },
+                        new
+                        {
+                            Id = "a905569d-db07-3ae3-63a0-322750a4a3bd",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "76f729ad-7478-b009-f357-9a19737ec2a8",
+                            DateOfBirth = new DateOnly(1978, 11, 30),
+                            Email = "Amy_Pollich@hotmail.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "27c86e8c-1fcc-eade-75cf-27ddf84ac5c7",
+                            GivenName = "Amy",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "AMY_POLLICH@HOTMAIL.COM",
+                            NormalizedUserName = "AMY_POLLICH@HOTMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "JDD4LBOD7LAR7JFULPZSZHZ6HIRGNDP6RYBUWDHY63RDYY4IHAAQ",
+                            SurName = "Pollich",
+                            TwoFactorEnabled = false,
+                            UserName = "Amy_Pollich@hotmail.com"
+                        },
+                        new
+                        {
+                            Id = "bc4519c8-fdeb-06e2-4a08-cc98c4273aba",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "198a2585-3d6b-d63d-0520-6fb21e724c93",
+                            DateOfBirth = new DateOnly(2002, 7, 20),
+                            Email = "Janet57@gmail.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "20a4bf01-81a8-8da6-f9f5-68278432205a",
+                            GivenName = "Janet",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "JANET57@GMAIL.COM",
+                            NormalizedUserName = "JANET57@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "JYUCS363SHRWIUGYTSHMCLQF3YF2VDNLGXAYYLLQ644VRMXFL3FQ",
+                            SurName = "Batz",
+                            TwoFactorEnabled = false,
+                            UserName = "Janet57@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "cf85ddf4-1ece-d1e2-3171-650938abd2b7",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "1d205c95-5ebb-7005-fd17-ea444cc865d6",
+                            DateOfBirth = new DateOnly(1993, 6, 15),
+                            Email = "Terry.Howell10@gmail.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "1a801076-e484-306e-7c1a-a970101a7ced",
+                            GivenName = "Terry",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "TERRY.HOWELL10@GMAIL.COM",
+                            NormalizedUserName = "TERRY.HOWELL10@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "INJYRDKZ6QUAJKX47TOSUVN5ZSBPL3UOLDOX7TSP5D3ZA5AAIOCA",
+                            SurName = "Howell",
+                            TwoFactorEnabled = false,
+                            UserName = "Terry.Howell10@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "e2c4a01f-40b1-9de1-18d9-ff7aab2e6ab3",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "4f90e6f7-aaa0-345f-1cb0-5e51cea42429",
+                            DateOfBirth = new DateOnly(1955, 9, 25),
+                            Email = "Christina.Rippin@yahoo.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "135c60ec-4660-d437-ff40-eaba9d01d781",
+                            GivenName = "Christina",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "CHRISTINA.RIPPIN@YAHOO.COM",
+                            NormalizedUserName = "CHRISTINA.RIPPIN@YAHOO.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "4LMJCLWHNDTVR2HRIMGL4JXPVEQR5RPKJWJCNXRSRYDIIPQQOBQA",
+                            SurName = "Rippin",
+                            TwoFactorEnabled = false,
+                            UserName = "Christina.Rippin@yahoo.com"
+                        },
+                        new
+                        {
+                            Id = "f604634b-6295-68e1-ff41-99ea1fb201b0",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "29d1fd9e-180c-0042-4497-d84a3b7ced7e",
+                            DateOfBirth = new DateOnly(2000, 1, 27),
+                            Email = "Bobby_Bogisich@gmail.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "0d38b161-a83c-77ff-8266-2a0429e93214",
+                            GivenName = "Bobby",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "BOBBY_BOGISICH@GMAIL.COM",
+                            NormalizedUserName = "BOBBY_BOGISICH@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "BYWPVC25JBKS2JKVJA2VKRK7MB7NYWOKZB3I7MZL7RIZDWHXHWWA",
+                            SurName = "Bogisich",
+                            TwoFactorEnabled = false,
+                            UserName = "Bobby_Bogisich@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "09442776-8478-34e0-e6aa-335b933599ad",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "d513e4f3-37a2-0c60-714d-45c218c93f73",
+                            DateOfBirth = new DateOnly(1997, 2, 7),
+                            Email = "Paula.Kertzmann64@hotmail.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "061401d7-0a18-1ac7-058b-6b4db5d18ea7",
+                            GivenName = "Paula",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "PAULA.KERTZMANN64@HOTMAIL.COM",
+                            NormalizedUserName = "PAULA.KERTZMANN64@HOTMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "F5RKTOQXHXWGU6QBNGQPYE3LD5XLDOUPMDJ3VE5SKD3ZJSHNLP3Q",
+                            SurName = "Kertzmann",
+                            TwoFactorEnabled = false,
+                            UserName = "Paula.Kertzmann64@hotmail.com"
+                        },
+                        new
+                        {
+                            Id = "1c84eaa2-a65c-ffdf-ce12-cccc06b931a9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2a45680f-3f28-5f98-0e97-b17432fc2d68",
+                            DateOfBirth = new DateOnly(1970, 9, 28),
+                            Email = "Tracy.Schaden41@yahoo.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "fff0524c-6df5-be8f-88b1-ac9742b9e93a",
+                            GivenName = "Tracy",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "TRACY.SCHADEN41@YAHOO.COM",
+                            NormalizedUserName = "TRACY.SCHADEN41@YAHOO.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "BEPACVUCRS725DXBS6T7XZQSTP7JADL2PDKNHSHX5PSDXOA5XW6A",
+                            SurName = "Schaden",
+                            TwoFactorEnabled = false,
+                            UserName = "Tracy.Schaden41@yahoo.com"
+                        },
+                        new
+                        {
+                            Id = "2fc3adcd-c83f-cbdf-b57a-663d7a3cc8a6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "43158a01-9487-fb0b-e71c-f173be71d76c",
+                            DateOfBirth = new DateOnly(1983, 2, 6),
+                            Email = "Jeff63@gmail.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            GivenName = "Jeff",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "JEFF63@GMAIL.COM",
+                            NormalizedUserName = "JEFF63@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "S6WVTLTXNRUYF23ODGXAKWVSEIZDZCVNW2CEDEF2EE3BN5CA7BBA",
+                            SurName = "Collier",
+                            TwoFactorEnabled = false,
+                            UserName = "Jeff63@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "420371f9-ea23-96de-9ce3-00aeeec060a2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0f8a8e07-a7ba-83e5-a040-e4ca180f0379",
+                            DateOfBirth = new DateOnly(1977, 6, 10),
+                            Email = "Pauline20@hotmail.com",
+                            EmailConfirmed = false,
+                            EmployeeId = "f2a8f337-31ad-041f-8efc-2e2a5a88a061",
+                            GivenName = "Pauline",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "PAULINE20@HOTMAIL.COM",
+                            NormalizedUserName = "PAULINE20@HOTMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "ZLTNLB5QZ5FANV3DZXIRS422N2CZC2GJ6RMBLOHYTEO5S43JKFWA",
+                            SurName = "Kub",
+                            TwoFactorEnabled = false,
+                            UserName = "Pauline20@hotmail.com"
+                        },
+                        new
+                        {
+                            Id = "2c062ac0-52d8-717c-d01d-8e17b271936d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "52b7328b-54f7-5191-22a3-90c4fe721f54",
+                            DateOfBirth = new DateOnly(1986, 2, 8),
+                            Email = "jon.doe@email.net",
+                            EmailConfirmed = false,
+                            EmployeeId = "8bca6111-4ae9-deb3-abe4-28b3734b9fe8",
+                            GivenName = "Jon",
+                            IsAdmin = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "JON.DOE@EMAIL.NET",
+                            NormalizedUserName = "JON.DOE@EMAIL.NET",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "DK4R64KMYHLGE3GN5EYP3PTJL5Q2HYJQYMAPJFIDMX6LI56PI4WQ",
+                            SurName = "Doe",
+                            TwoFactorEnabled = false,
+                            UserName = "jon.doe@email.net"
+                        },
+                        new
+                        {
+                            Id = "00d8733a-59be-1984-c489-6ee7c522ea9d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "d28d0ce7-8f75-1e7c-5f96-b89430f36069",
+                            DateOfBirth = new DateOnly(1991, 2, 3),
+                            Email = "shodan@sky.net",
+                            EmailConfirmed = false,
+                            GivenName = "Shodan",
+                            IsAdmin = true,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "SHODAN@SKY.NET",
+                            NormalizedUserName = "SHODAN@SKY.NET",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJh/oiQJwUCg5FMf05btteLqRcPnfNfsM0omhOJ2e2TOMlzdx7k4M90ewLzNRIJYYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "4VE7J6L4BAEG2VWSJT7PKWRY4KOBDI4FFM674K5CTMM3BQ2U5R5A",
+                            SurName = "Brosius",
+                            TwoFactorEnabled = false,
+                            UserName = "shodan@sky.net"
+                        });
                 });
 
             modelBuilder.Entity("MyVacationController.Models.Employee", b =>
@@ -183,6 +457,68 @@ namespace MyVacationController.Migrations
                         .IsUnique();
 
                     b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3410cda1-5b13-a34e-6f84-a54adf7a0ea0",
+                            UserId = "8286d046-9740-a3e4-95cf-ff46699c73c4"
+                        },
+                        new
+                        {
+                            Id = "2eec1e16-bdf0-4616-f2a9-e6936c626933",
+                            UserId = "95c69371-b924-6fe3-7c38-98b7dd200bc1"
+                        },
+                        new
+                        {
+                            Id = "27c86e8c-1fcc-eade-75cf-27ddf84ac5c7",
+                            UserId = "a905569d-db07-3ae3-63a0-322750a4a3bd"
+                        },
+                        new
+                        {
+                            Id = "20a4bf01-81a8-8da6-f9f5-68278432205a",
+                            UserId = "bc4519c8-fdeb-06e2-4a08-cc98c4273aba"
+                        },
+                        new
+                        {
+                            Id = "1a801076-e484-306e-7c1a-a970101a7ced",
+                            UserId = "cf85ddf4-1ece-d1e2-3171-650938abd2b7"
+                        },
+                        new
+                        {
+                            Id = "135c60ec-4660-d437-ff40-eaba9d01d781",
+                            UserId = "e2c4a01f-40b1-9de1-18d9-ff7aab2e6ab3"
+                        },
+                        new
+                        {
+                            Id = "0d38b161-a83c-77ff-8266-2a0429e93214",
+                            UserId = "f604634b-6295-68e1-ff41-99ea1fb201b0"
+                        },
+                        new
+                        {
+                            Id = "061401d7-0a18-1ac7-058b-6b4db5d18ea7",
+                            UserId = "09442776-8478-34e0-e6aa-335b933599ad"
+                        },
+                        new
+                        {
+                            Id = "fff0524c-6df5-be8f-88b1-ac9742b9e93a",
+                            UserId = "1c84eaa2-a65c-ffdf-ce12-cccc06b931a9"
+                        },
+                        new
+                        {
+                            Id = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            UserId = "2fc3adcd-c83f-cbdf-b57a-663d7a3cc8a6"
+                        },
+                        new
+                        {
+                            Id = "f2a8f337-31ad-041f-8efc-2e2a5a88a061",
+                            UserId = "420371f9-ea23-96de-9ce3-00aeeec060a2"
+                        },
+                        new
+                        {
+                            Id = "8bca6111-4ae9-deb3-abe4-28b3734b9fe8",
+                            UserId = "2c062ac0-52d8-717c-d01d-8e17b271936d"
+                        });
                 });
 
             modelBuilder.Entity("MyVacationController.Models.Leave", b =>
@@ -201,7 +537,6 @@ namespace MyVacationController.Migrations
                         .HasDefaultValueSql("datetime('now', 'localtime')");
 
                     b.Property<string>("EmployeeId")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly>("End")
@@ -218,6 +553,338 @@ namespace MyVacationController.Migrations
                     b.HasIndex("EmployeeId");
 
                     b.ToTable("Leaves");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "8286d046-9740-a3e4-95cf-ff46699c73c4",
+                            Comment = "Neque eum quibusdam.\nAutem nemo qui rerum.\nPorro cumque perferendis doloribus aut vero veritatis.\nCupiditate enim asperiores eligendi iure iusto cum.\nRem et ex non ipsum ut eligendi qui.\nHic dicta aut corrupti.",
+                            Created = new DateTime(2022, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "3410cda1-5b13-a34e-6f84-a54adf7a0ea0",
+                            End = new DateOnly(2023, 3, 7),
+                            Start = new DateOnly(2023, 2, 20),
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = "95c69371-b924-6fe3-7c38-98b7dd200bc1",
+                            Comment = "vitae",
+                            Created = new DateTime(2023, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "20a4bf01-81a8-8da6-f9f5-68278432205a",
+                            End = new DateOnly(2023, 7, 30),
+                            Start = new DateOnly(2023, 7, 24),
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = "a905569d-db07-3ae3-63a0-322750a4a3bd",
+                            Comment = "Qui et vitae asperiores.",
+                            Created = new DateTime(2022, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "0d38b161-a83c-77ff-8266-2a0429e93214",
+                            End = new DateOnly(2023, 1, 15),
+                            Start = new DateOnly(2022, 12, 24),
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = "bc4519c8-fdeb-06e2-4a08-cc98c4273aba",
+                            Comment = "Libero et sunt aspernatur quis dolorem et corporis nam. Et sunt eaque itaque nisi odit doloremque. In dolorem voluptate est. Voluptatem optio occaecati.",
+                            Created = new DateTime(2023, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "fff0524c-6df5-be8f-88b1-ac9742b9e93a",
+                            End = new DateOnly(2023, 6, 8),
+                            Start = new DateOnly(2023, 5, 27),
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = "cf85ddf4-1ece-d1e2-3171-650938abd2b7",
+                            Comment = "Architecto quo dolor consectetur quod incidunt.",
+                            Created = new DateTime(2023, 8, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "8bca6111-4ae9-deb3-abe4-28b3734b9fe8",
+                            End = new DateOnly(2023, 10, 29),
+                            Start = new DateOnly(2023, 10, 27),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "e2c4a01f-40b1-9de1-18d9-ff7aab2e6ab3",
+                            Comment = "Consequatur magni quis eum explicabo.\nSed repudiandae ea aperiam impedit eos.\nVoluptatem alias rem quis commodi aut eum omnis.\nQuasi beatae vel omnis minus perferendis odit nihil voluptatibus impedit.\nUt sunt fugiat omnis non impedit.",
+                            Created = new DateTime(2023, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "27c86e8c-1fcc-eade-75cf-27ddf84ac5c7",
+                            End = new DateOnly(2023, 4, 16),
+                            Start = new DateOnly(2023, 3, 29),
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = "f604634b-6295-68e1-ff41-99ea1fb201b0",
+                            Comment = "placeat",
+                            Created = new DateTime(2023, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "27c86e8c-1fcc-eade-75cf-27ddf84ac5c7",
+                            End = new DateOnly(2023, 9, 7),
+                            Start = new DateOnly(2023, 8, 30),
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = "09442776-8478-34e0-e6aa-335b933599ad",
+                            Comment = "Consequatur nisi eum atque tempore vel facilis possimus cupiditate eos.",
+                            Created = new DateTime(2022, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "0d38b161-a83c-77ff-8266-2a0429e93214",
+                            End = new DateOnly(2023, 2, 23),
+                            Start = new DateOnly(2023, 1, 30),
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = "1c84eaa2-a65c-ffdf-ce12-cccc06b931a9",
+                            Comment = "Excepturi dolor culpa. Tempore voluptatem aperiam sit molestias. Sint numquam repellendus sequi atque sint rerum et esse.",
+                            Created = new DateTime(2023, 4, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "20a4bf01-81a8-8da6-f9f5-68278432205a",
+                            End = new DateOnly(2023, 7, 17),
+                            Start = new DateOnly(2023, 7, 3),
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = "2fc3adcd-c83f-cbdf-b57a-663d7a3cc8a6",
+                            Comment = "ratione",
+                            Created = new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "fff0524c-6df5-be8f-88b1-ac9742b9e93a",
+                            End = new DateOnly(2022, 12, 8),
+                            Start = new DateOnly(2022, 12, 3),
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = "420371f9-ea23-96de-9ce3-00aeeec060a2",
+                            Comment = "Pariatur officiis omnis animi reprehenderit quas qui.\nDolore aliquid quisquam voluptatem atque labore qui debitis tempora sed.\nEst velit occaecati nihil deleniti beatae et modi cum est.",
+                            Created = new DateTime(2023, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "061401d7-0a18-1ac7-058b-6b4db5d18ea7",
+                            End = new DateOnly(2023, 5, 26),
+                            Start = new DateOnly(2023, 5, 5),
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = "56433424-0c06-62de-834b-9a1e6143f89f",
+                            Comment = "Sit modi debitis et magnam quia eos maxime et. Quia nostrum fugiat veniam ut natus in. Porro ab maiores harum ut commodi quam facilis voluptatem. Aut consequuntur laboriosam recusandae mollitia sed voluptatem non et.",
+                            Created = new DateTime(2023, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            End = new DateOnly(2023, 10, 17),
+                            Start = new DateOnly(2023, 10, 6),
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = "6982f750-2dea-2ddd-6ab4-338fd5c7909c",
+                            Comment = "Eaque consectetur sunt aut necessitatibus aut quod.",
+                            Created = new DateTime(2023, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "0d38b161-a83c-77ff-8266-2a0429e93214",
+                            End = new DateOnly(2023, 3, 9),
+                            Start = new DateOnly(2023, 3, 8),
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = "7cc2ba7c-4fcd-f9dd-511c-cd00494a2798",
+                            Comment = "Ea et quasi provident ut.\nEsse ex ex qui molestiae.\nProvident quis et et quod.\nMagnam id magni vero quis quia aspernatur cum sint quasi.\nDoloremque autem laboriosam.",
+                            Created = new DateTime(2023, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            End = new DateOnly(2023, 8, 26),
+                            Start = new DateOnly(2023, 8, 9),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "8f027ea7-71b0-c4dc-3884-6771bccebf95",
+                            Comment = "consequatur",
+                            Created = new DateTime(2022, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "0d38b161-a83c-77ff-8266-2a0429e93214",
+                            End = new DateOnly(2023, 1, 16),
+                            Start = new DateOnly(2023, 1, 9),
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = "a24141d3-9394-90dc-1fed-01e130515792",
+                            Comment = "Optio dolorum ut illum est animi delectus delectus explicabo.\nMinus reprehenderit incidunt blanditiis veniam veniam vitae ipsa.\nNeque ad vitae nisi rerum dolor impedit impedit suscipit.\nNon dolore placeat in enim.\nSit nihil laborum pariatur rem quas doloribus beatae velit.\nEt error est id.",
+                            Created = new DateTime(2023, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            End = new DateOnly(2023, 7, 5),
+                            Start = new DateOnly(2023, 6, 12),
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = "b68104fe-b577-5bdb-0755-9a52a4d5ee8e",
+                            Comment = "Et ut consequatur. Unde modi et est laudantium non. Esse culpa et aut.",
+                            Created = new DateTime(2022, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "20a4bf01-81a8-8da6-f9f5-68278432205a",
+                            End = new DateOnly(2022, 11, 25),
+                            Start = new DateOnly(2022, 11, 12),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "c9c1c82a-d75b-27da-eebd-34c31858868b",
+                            Comment = "Voluptatem aperiam voluptatem laudantium.",
+                            Created = new DateTime(2023, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "1a801076-e484-306e-7c1a-a970101a7ced",
+                            End = new DateOnly(2023, 4, 18),
+                            Start = new DateOnly(2023, 4, 14),
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = "dc018b55-f93e-f2da-d526-ce348bdc1e87",
+                            Comment = "Sed libero natus maxime enim praesentium autem.\nSed praesentium itaque laudantium ad officia.\nSit mollitia maxime sunt asperiores doloribus nihil molestiae non.",
+                            Created = new DateTime(2023, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            End = new DateOnly(2023, 10, 5),
+                            Start = new DateOnly(2023, 9, 15),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "ef404e81-1b22-bed9-bc8e-68a5ff5fb584",
+                            Comment = "voluptatum",
+                            Created = new DateTime(2023, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "1a801076-e484-306e-7c1a-a970101a7ced",
+                            End = new DateOnly(2023, 2, 25),
+                            Start = new DateOnly(2023, 2, 15),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "038011ac-3c05-89d9-a3f7-011573e34d81",
+                            Comment = "Alias ut consequatur possimus aperiam doloribus cumque.",
+                            Created = new DateTime(2023, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "8bca6111-4ae9-deb3-abe4-28b3734b9fe8",
+                            End = new DateOnly(2023, 7, 19),
+                            Start = new DateOnly(2023, 7, 19),
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = "16c0d5d8-5ee9-55d8-8a5f-9b86e666e57d",
+                            Comment = "Impedit porro vero cum. Voluptatem fuga quibusdam nemo dolore qui ut quia porro. Autem aut ducimus qui eum. Voluptas molestias ipsum qui et exercitationem magni delectus. Est ut animi aut error molestiae in laudantium.",
+                            Created = new DateTime(2022, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "135c60ec-4660-d437-ff40-eaba9d01d781",
+                            End = new DateOnly(2023, 1, 4),
+                            Start = new DateOnly(2022, 12, 19),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "29ff9803-80cc-20d8-71c7-35f75aea7d7a",
+                            Comment = "officiis",
+                            Created = new DateTime(2023, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f2a8f337-31ad-041f-8efc-2e2a5a88a061",
+                            End = new DateOnly(2023, 5, 28),
+                            Start = new DateOnly(2023, 5, 22),
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = "3c3f5b2f-a2b0-ecd7-5830-ce68ce6d1477",
+                            Comment = "Quae esse ab sapiente similique iste quia velit.\nEst hic officia.",
+                            Created = new DateTime(2023, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            End = new DateOnly(2023, 11, 14),
+                            Start = new DateOnly(2023, 10, 23),
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = "4f7f1f5a-c493-b7d7-4098-68d841f1ac73",
+                            Comment = "Eius voluptas voluptatem id molestiae dolor qui numquam esse eaque. Et quis nulla quod quam. Voluptatem optio distinctio nihil aut dicta consequatur.",
+                            Created = new DateTime(2023, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f2a8f337-31ad-041f-8efc-2e2a5a88a061",
+                            End = new DateOnly(2023, 4, 5),
+                            Start = new DateOnly(2023, 3, 24),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "63bee286-e676-83d6-2700-0249b5744470",
+                            Comment = "Tempora iure fugit dolore magnam.",
+                            Created = new DateTime(2023, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            End = new DateOnly(2023, 8, 27),
+                            Start = new DateOnly(2023, 8, 25),
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = "76fea5b1-085a-4ed6-0e69-9cba29f8db6c",
+                            Comment = "Iste laudantium ut saepe ratione esse. Dolorem sequi error. Nam quasi recusandae qui. Delectus quis incidunt eius similique voluptas qui sunt cupiditate.",
+                            Created = new DateTime(2022, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            End = new DateOnly(2023, 2, 13),
+                            Start = new DateOnly(2023, 1, 25),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "893e69dd-2a3d-1ad5-f5d1-352b9c7c7369",
+                            Comment = "sed",
+                            Created = new DateTime(2023, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "fff0524c-6df5-be8f-88b1-ac9742b9e93a",
+                            End = new DateOnly(2023, 7, 7),
+                            Start = new DateOnly(2023, 6, 28),
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = "9c7e2c08-4b21-e5d4-dc39-cf9c10ff0b66",
+                            Comment = "Saepe neque ut dolor et expedita iste iusto saepe sunt.\nPorro assumenda sit illo qui enim nihil assumenda est quo.\nVelit sit sed voluptates voluptatibus illo dolor.\nOptio qui alias repudiandae et officiis quia quia aperiam.\nIusto magni architecto error.",
+                            Created = new DateTime(2022, 10, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f2a8f337-31ad-041f-8efc-2e2a5a88a061",
+                            End = new DateOnly(2022, 12, 23),
+                            Start = new DateOnly(2022, 11, 28),
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = "afbdef34-6d04-b1d4-c3a2-690c8483a262",
+                            Comment = "Veritatis excepturi rerum qui. Ad fugiat et voluptatem ex ea quod sed. Aut dolorem deleniti. Sed ab veniam libero est numquam perspiciatis molestiae beatae amet. Labore nihil animi sed consectetur iste modi quia non ab. Distinctio ducimus architecto.",
+                            Created = new DateTime(2023, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "0d38b161-a83c-77ff-8266-2a0429e93214",
+                            End = new DateOnly(2023, 5, 16),
+                            Start = new DateOnly(2023, 5, 1),
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = "c3fdb25f-8fe8-7cd3-aa0a-037df7063a5f",
+                            Comment = "Qui incidunt eos id laudantium officia saepe aut quae harum.",
+                            Created = new DateTime(2023, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "f9cca3c2-cfd1-6157-0bd6-ede0cea144ce",
+                            End = new DateOnly(2023, 10, 7),
+                            Start = new DateOnly(2023, 10, 2),
+                            Type = 2
+                        },
+                        new
+                        {
+                            Id = "d63d768b-b1cb-48d3-9173-9cee6b8ad25c",
+                            Comment = "In non quo odit ducimus sint iure at.\nAut dolorem temporibus.",
+                            Created = new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "2eec1e16-bdf0-4616-f2a9-e6936c626933",
+                            End = new DateOnly(2023, 3, 24),
+                            Start = new DateOnly(2023, 3, 3),
+                            Type = 3
+                        },
+                        new
+                        {
+                            Id = "e97c39b6-d3af-13d2-79db-365fdf0d6a58",
+                            Comment = "sed",
+                            Created = new DateTime(2023, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = "0d38b161-a83c-77ff-8266-2a0429e93214",
+                            End = new DateOnly(2023, 8, 15),
+                            Start = new DateOnly(2023, 8, 4),
+                            Type = 3
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
@@ -260,9 +927,7 @@ namespace MyVacationController.Migrations
                 {
                     b.HasOne("MyVacationController.Models.Employee", "Employee")
                         .WithMany("Leaves")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EmployeeId");
 
                     b.Navigation("Employee");
                 });

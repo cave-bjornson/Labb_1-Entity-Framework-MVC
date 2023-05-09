@@ -1,12 +1,7 @@
-using System.Net.Mime;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using MyVacationController.Areas.Identity;
 using MyVacationController.Data;
-
-// Toggle seeding data from command line
-var seedData = args.Length == 1 && args[0].ToLower() == "seeddata";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,23 +43,7 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddControllersWithViews();
 
-if (seedData)
-{
-    builder.Services.AddTransient<DataSeeder>();
-}
-
 var app = builder.Build();
-
-//Seed Data
-if (seedData)
-{
-    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
-
-    using var scope = scopedFactory.CreateScope();
-    var service = scope.ServiceProvider.GetRequiredService<DataSeeder>();
-    await service.Seed();
-    Environment.Exit(0);
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
